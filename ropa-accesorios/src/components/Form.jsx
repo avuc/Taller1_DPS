@@ -4,39 +4,40 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const Form = () => {
   let ropas = require("../json/ropa.json");
-  const [nombre, setNombre] = useState(ropas[0].nombre);
-  const [precio, setPrecio] = useState(ropas[0].precio);
+  const [ropa, setRopa] = useState(ropas[0].nombre);
+  const [prendas, setPrendas]=useState([]);
 
   /*console.log(ropas[0].nombre);*/
-  const nombres = ropas.map((ropa) => ropa.nombre);
+  /*const nombres = ropas.map((ropa) => ropa.nombre);*/
 
-  const handleChange = (e) => {
-    console.log(nombre + "---" + precio);
-  };
+  const handleClick=e=>{
+    if(ropa!=null){
+      setPrendas([...prendas,ropa])
+    }
+    else{
+      alert("Seleccione una prenda")
+    }
+  }
 
   return (
     <>
-    <div>{console.log(nombre + "---" + precio)}</div>
-    <div>{console.log(nombre)}</div>
+
+    <div>{console.log(prendas)}</div>
       <form onSubmit={(e) => e.preventDefault()}>
         <br />
         <Autocomplete
           options={ropas}
           getOptionLabel={(option) => option.nombre}
-          nombre={nombre}
-          onChange={(event, newNombre) => {
-            setNombre(newNombre);
-          }}
-          precio={precio}
-          onInputChange={(event, newPrecio) => {
-            setPrecio(newPrecio);
+          ropa={ropa}
+          onChange={(event, newRopa) => {
+              setRopa(newRopa);
           }}
           style={{ width: 300 }}
           renderInput={(params) => (
             <TextField {...params} label="Ropas" variant="outlined" />
           )}
         />
-        <button>Agregar</button>
+        <button onClick={handleClick}>Agregar</button>
       </form>
     </>
   );
