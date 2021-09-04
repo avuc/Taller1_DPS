@@ -9,12 +9,14 @@ const Prenda=({ropa,id,precioU,cantidad,index,precio,deletePrenda,editPrenda})=>
         <div className="list">
             <p>{ropa}</p>
             <p>{precio}</p>
+            <div className="controles">
             <input type="number" name="prenda" onChange={handleChange} defaultValue={cantidad} />
             <button className="btn-delete" onClick={
               ()=>deletePrenda(index)
-              
           }>X</button>
+          </div>
         </div>
+        <hr />
     </>
     )
 }

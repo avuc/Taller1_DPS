@@ -66,6 +66,7 @@ const Form = () => {
     <>
       <form onSubmit={(e) => e.preventDefault()}>
         <br />
+        <div className="autocomp">
         <Autocomplete
           options={ropas}
           getOptionLabel={(option) => option.nombre}
@@ -73,20 +74,25 @@ const Form = () => {
           onChange={(event, newRopa) => {
               setPrenda(newRopa);
           }}
-          style={{ width: 300 }}
+          style={{ 
+            width: 300 
+          }}
           renderInput={(params) => (
             <TextField {...params} label="Ropas" variant="outlined" />
           )}
         />
-        <button onClick={handleClick}>Agregar</button>
+        </div>
+        <button className="submit" onClick={handleClick}>Agregar</button>
       </form>
+      <div className="tabla">
       {
         prendas.map((objeto,index)=>(
           //console.log(objeto.nombre+'--'+objeto.precio+'--'+objeto.cantidad+'--'+objeto.id)
           <Prenda ropa={objeto.nombre} precioU={objeto.precioU} index={index} key={index} id={objeto.id} cantidad={objeto.cantidad} precio={objeto.precio} deletePrenda={deletePrenda} editPrenda={editPrenda}/>
         ))
       }
-      <div>
+      </div>
+      <div className="total">
         <p>Total a Pagar: {total}</p>
       </div>
     </>
