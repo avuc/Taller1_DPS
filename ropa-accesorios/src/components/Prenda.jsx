@@ -1,15 +1,18 @@
 import React from "react";
 
-const Prenda=({ropa,id,cantidad,index,precio,deletePrenda})=>{
+const Prenda=({ropa,id,precioU,cantidad,index,precio,deletePrenda,editPrenda})=>{
+
+    const handleChange=e=> editPrenda(index,precioU,e.target.value)
 
     return(
     <>
         <div className="list">
             <p>{ropa}</p>
             <p>{precio}</p>
-            <input type="number" name="prenda" defaultValue={cantidad} />
+            <input type="number" name="prenda" onChange={handleChange} defaultValue={cantidad} />
             <button className="btn-delete" onClick={
               ()=>deletePrenda(index)
+              
           }>X</button>
         </div>
     </>

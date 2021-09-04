@@ -3,24 +3,28 @@
         "id": 1,
         "nombre": "vestido",
         "precio": 23.50,
+        "precioU": 23.50,
         "cantidad":1
     },
     {
         "id": 2,
         "nombre": "pantalón",
         "precio": 23.50,
+        "precioU": 23.50,
         "cantidad":1
     },
     {
         "id": 3,
         "nombre": "zapatos",
         "precio": 23.50,
+        "precioU": 23.50,
         "cantidad":1
     },
     {
         "id": 4,
         "nombre": "blusa",
         "precio": 23.50,
+        "precioU": 23.50,
         "cantidad":1
     }
 ]
