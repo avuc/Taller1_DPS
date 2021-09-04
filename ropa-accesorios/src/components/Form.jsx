@@ -14,13 +14,26 @@ const Form = () => {
 
   const handleClick=e=>{
     if(prenda!=null){
-      setPrendas([...prendas,prenda])
-      handleChange(prenda.precio)
+      if (!handleRepetido(prenda.nombre)) {
+        setPrendas([...prendas,prenda])
+        handleChange(prenda.precio)
+      } else {
+        alert("Seleccione una prenda no repetida")
+      }
     }
     else{
       alert("Seleccione una prenda")
     }
-    
+  }
+
+  const handleRepetido=(nombre)=>{
+    var Verificador=false;
+    prendas.forEach(element => {
+      if (element.nombre===nombre) {
+        Verificador=true;
+      }
+    });
+    return Verificador;
   }
 
   const handleChange=(sum)=>{
